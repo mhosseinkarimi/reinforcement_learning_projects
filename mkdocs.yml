@@ -5,8 +5,8 @@ theme:
    font:
      text: Merriweather Sans
      code: Red Hat Mono
-   icon:
-     logo: material/pokemon-go
+   logo: assets/rl_logo.png
+   favicon: assets/favicon.ico
    features:
      - navigation.footer
    palette: 
