@@ -1,5 +1,6 @@
 site_name: RL Exploration Logs
 site_url: https://example.com
+docs_dir: docs
 theme:
   name: material
   font:
