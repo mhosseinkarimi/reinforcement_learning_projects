@@ -18,7 +18,7 @@ theme:
        primary: green
        accent: deep purple
  
-     # Light Mode
+     # Light Mode 
      - scheme: default
        toggle:
          icon: material/weather-night
