@@ -232,21 +232,21 @@ if __name__ == "__main__":
     plt.legend(loc="lower right")
     plt.show()
     
-# Experimenting with UCB
-c_values = [0, 1, 2, 3]
-for c in c_values:
-    ucb = UCB(bandit, c)
-    episode_rewards, episode_actions, episode_total_rewards = ucb.run(num_steps, num_episodes)
-    # Plotting the rewards
-    reward_mean = np.mean(episode_rewards, axis=0)
-    reward_std = np.std(episode_rewards, axis=0)
-    plt.plot(reward_mean, label=f"c: {c}")
-    plt.fill_between(range(num_steps), reward_mean - reward_std, reward_mean + reward_std, alpha=0.2)
-plt.xlabel("Steps")
-plt.ylabel("Average Reward")
-plt.title(f"UCB Action-value Method Applied on {k}-armed Bandit")
-plt.legend(loc="lower right")
-plt.show()
+    # Experimenting with UCB
+    c_values = [0, 1, 2, 3]
+    for c in c_values:
+        ucb = UCB(bandit, c)
+        episode_rewards, episode_actions, episode_total_rewards = ucb.run(num_steps, num_episodes)
+        # Plotting the rewards
+        reward_mean = np.mean(episode_rewards, axis=0)
+        reward_std = np.std(episode_rewards, axis=0)
+        plt.plot(reward_mean, label=f"c: {c}")
+        plt.fill_between(range(num_steps), reward_mean - reward_std, reward_mean + reward_std, alpha=0.2)
+    plt.xlabel("Steps")
+    plt.ylabel("Average Reward")
+    plt.title(f"UCB Action-value Method Applied on {k}-armed Bandit")
+    plt.legend(loc="lower right")
+    plt.show()
 
 
     
