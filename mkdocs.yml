@@ -25,7 +25,10 @@ theme:
          name: Light Mode
        primary: light blue
        accent: deep orange
+       
 markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
   - attr_list
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
@@ -45,6 +48,15 @@ markdown_extensions:
       alternate_style: true
   - admonition
   - pymdownx.details
+  
+extra_css:
+  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js
+  - js/math-render.js
+
 extra:
   social:
     - icon: material/github
