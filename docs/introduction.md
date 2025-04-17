@@ -1,5 +1,5 @@
 # Introductoin
-
+## What is Reinforcement Learning?
 First things first, what is reinforcement learning!? Reinforcement learning relies on the idea of learning by **interacting** with an **environment**. The core concept of interaction with and environment and learning through the feedback recieved in this process, shapes the idea of reinforcement learning.
 
 ![Interaction](assets/introduction/rl_agent_interaction.png)
@@ -67,19 +67,6 @@ $
 
 This is very useful when the agent needs to decide between several possible actions in the same state. 
 
-## Test Section
-
-This should work: `$x^2 + y^2 = z^2$`
-
-And this block:
-
-$$
-Q(s, a) = \mathbb{E}[G_t \mid s_t = s, a_t = a]
-$$
-
-- Here is some math: `$s_t$`
-- Better version: `$s_{t+1}$`
-
 ## How can we Model the Decision-making Process?
 
 ### Sequences of Interaction
@@ -92,7 +79,9 @@ In reinforcement learning, what the agent does now affects what happens next. Th
 
 This forms a sequence like:
 
-$s_0, a_0, r_1, s_1, a_1, r_2, s_2, \dots$
+$$
+s_0, a_0, r_1, s_1, a_1, r_2, s_2, \dots
+$$
 
 These sequences are important because the goal of the agent is to choose actions that lead to better rewards over time. This sequence also means that the agent must balance what it knows now with how its current decisions affect future states and rewards.
 
@@ -102,35 +91,135 @@ These sequences are important because the goal of the agent is to choose actions
 
 To model how the environment reacts to the agent’s actions, we use the concept of a **transition probability**. This tells us the probability of ending up in a certain next state and receiving a certain reward, given the current state and action.
 
-This is written as:
+Mathematically, this is written as:
 
-$P(s', r \mid s, a)$ 
+$$
+P(s', r \mid s, a)
+$$
 
 Where:
 
 - $s$: current state  
-- $a$: current action  
-- $s'$: next state  
+- $a$: action taken in state $s$  
+- $s'$: resulting next state  
 - $r$: reward received after taking action $a$ in state $s$
 
-This defines the **dynamics** of the environment. If the environment is deterministic, the next state and reward are always the same for a given state-action pair. If it’s stochastic, the outcomes are uncertain and described by probabilities.
+This probability describes the **dynamics** of the environment. If the outcome is always the same, we call it **deterministic**. Otherwise, it is **stochastic**.
+
+When the number of states is finite, these transition probabilities can be represented in a **transition probability matrix**. For a given action $a$, this matrix $P_a$ holds values:
+
+$$
+P_a(s, s') = \mathbb{P}[s_{t+1} = s' \mid s_t = s, a_t = a]
+$$
+
+Each row of this matrix gives the probability distribution over next states, given the current state and action. It forms the basis for computing expected returns, value functions, and planning.
+
+---
+
+!!! tip "Markov Process"
+    A **Markov process** is a stochastic process where the future depends only on the current state — not on the sequence of events that preceded it. This is known as the **Markov property**:
+
+    $$
+    \mathbb{P}[s_{t+1} \mid s_t, s_{t-1}, \dots, s_0] = \mathbb{P}[s_{t+1} \mid s_t]
+    $$
+
+    A Markov process without actions or rewards is called a **Markov chain**. When we add actions and rewards, it becomes a **Markov Decision Process (MDP)**.
 
 ---
 
 ### Markov Decision Process (MDP)
 
-When the next state and reward depend **only** on the current state and action (and not the full history), we say the environment has the **Markov property**.
+A **Markov Decision Process (MDP)** provides a mathematical framework for modeling decision-making in environments that satisfy the Markov property.
 
-A **Markov Decision Process (MDP)** is a common way to formalize reinforcement learning problems. An MDP is defined by:
+An MDP is defined by:
 
 - A set of states $S$
 - A set of actions $A$
-- A transition function $P(s', r \mid s, a)$
+- A transition probability function $P(s', r \mid s, a)$
 - A reward function $R(s, a)$ or $R(s, a, s')$
 - A discount factor $\gamma \in [0, 1]$
 
-The agent’s objective in an MDP is to learn a **policy** (a rule for choosing actions) that maximizes the expected return:
+In this setup, the agent interacts with the environment over time and chooses actions based on a **policy** $\pi(a \mid s)$, which defines the probability of taking action $a$ in state $s$.
 
-$G_t = r_{t+1} + \gamma r_{t+2} + \gamma^2 r_{t+3} + \dots$
+The goal of the agent is to find a policy that maximizes the **expected return**:
 
-The Markov property helps simplify learning and planning, and most RL algorithms assume the environment follows this structure.
+$$
+G_t = r_{t+1} + \gamma r_{t+2} + \gamma^2 r_{t+3} + \dots
+$$
+
+This compact structure makes MDPs very useful for developing and analyzing reinforcement learning algorithms.
+
+---
+
+### Policy
+
+Now that we’ve seen how an agent interacts with the environment and how the environment behaves probabilistically, we can talk about what actually guides the agent’s behavior — the **policy**.
+
+A **policy** is the agent’s strategy for choosing actions based on the current state. It defines the agent's behavior at every point in time.
+
+---
+
+#### Deterministic Policy
+
+A **deterministic policy** maps each state directly to a specific action:
+
+$$
+\pi(s) = a
+$$
+
+This means that whenever the agent is in state $s$, it always chooses action $a$.
+
+---
+
+#### Stochastic Policy
+
+In many settings, it is useful (or even necessary) to consider **stochastic policies**. These assign probabilities to each action given a state:
+
+$$
+\pi(a \mid s) = \mathbb{P}[a_t = a \mid s_t = s]
+$$
+
+This is the probability that the agent chooses action $a$ when in state $s$. Stochastic policies are especially useful for exploration, policy gradients, and environments with uncertainty.
+
+---
+
+#### Policy Evaluation
+
+To evaluate how good a policy is, we use **value functions**:
+
+- The **state-value function** for a policy $\pi$:
+
+  $$
+  V^\pi(s) = \mathbb{E}_\pi[G_t \mid s_t = s]
+  $$
+
+  This gives the expected return starting from state $s$ and following policy $\pi$ thereafter.
+
+- The **action-value function** for a policy $\pi$:
+
+  $$
+  Q^\pi(s, a) = \mathbb{E}_\pi[G_t \mid s_t = s, a_t = a]
+  $$
+
+  This gives the expected return after taking action $a$ in state $s$, and then following policy $\pi$ from the next state.
+
+---
+
+#### Policy Improvement
+
+The goal of reinforcement learning is to **improve the policy** over time. A better policy is one that gives higher expected returns.
+
+In many RL algorithms (like policy iteration or actor-critic methods), we update the policy by comparing value estimates and adjusting the action choices to increase the expected return. This is often done by:
+
+- Making the policy more likely to choose actions with higher $Q^\pi(s, a)$
+- Reducing the likelihood of actions with lower value
+
+Over time, this leads to **optimal policies**:
+
+$$
+\pi^* = \arg\max_\pi V^\pi(s), \quad \forall s \in S
+$$
+
+This optimal policy achieves the highest expected return from any state.
+
+
