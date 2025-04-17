@@ -8,22 +8,26 @@
       
       
       
+        <link rel="canonical" href="https://example.com/tabular_rl/">
+      
+      
+        <link rel="prev" href="../introduction/">
       
       
       
-      <link rel="icon" href="/assets/favicon.ico">
+      <link rel="icon" href="../assets/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
     
     
       
-        <title>RL Exploration Logs</title>
+        <title>Tabular rl - RL Exploration Logs</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.4af4bdda.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.4af4bdda.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -44,7 +48,7 @@
     
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -69,6 +73,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#how-can-we-model-the-decision-making-process" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -81,9 +90,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="RL Exploration Logs" class="md-header__button md-logo" aria-label="RL Exploration Logs" data-md-component="logo">
+    <a href=".." title="RL Exploration Logs" class="md-header__button md-logo" aria-label="RL Exploration Logs" data-md-component="logo">
       
-  <img src="/assets/rl_logo.png" alt="logo">
+  <img src="../assets/rl_logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -100,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Tabular rl
             
           </span>
         </div>
@@ -204,9 +213,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="RL Exploration Logs" class="md-nav__button md-logo" aria-label="RL Exploration Logs" data-md-component="logo">
+    <a href=".." title="RL Exploration Logs" class="md-nav__button md-logo" aria-label="RL Exploration Logs" data-md-component="logo">
       
-  <img src="/assets/rl_logo.png" alt="logo">
+  <img src="../assets/rl_logo.png" alt="logo">
 
     </a>
     RL Exploration Logs
@@ -221,7 +230,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -243,7 +252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/introduction/" class="md-nav__link">
+      <a href="../introduction/" class="md-nav__link">
         
   
   
@@ -262,10 +271,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/tabular_rl/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Tabular rl
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -276,6 +305,66 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-can-we-model-the-decision-making-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      How can we Model the Decision-making Process?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How can we Model the Decision-making Process?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sequences-of-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sequences of Interaction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transition-probability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transition Probability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#markov-decision-process-mdp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Markov Decision Process (MDP)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -298,6 +387,56 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-can-we-model-the-decision-making-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      How can we Model the Decision-making Process?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How can we Model the Decision-making Process?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sequences-of-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sequences of Interaction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transition-probability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transition Probability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#markov-decision-process-mdp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Markov Decision Process (MDP)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -308,8 +447,64 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+
+  <h1>Tabular rl</h1>
+
+<h2 id="how-can-we-model-the-decision-making-process">How can we Model the Decision-making Process?</h2>
+<h3 id="sequences-of-interaction">Sequences of Interaction</h3>
+<p>In reinforcement learning, what the agent does now affects what happens next. The agent interacts with the environment step by step. At each time step <span class="arithmatex">\(t\)</span>, the agent:</p>
+<ul>
+<li>observes a state <span class="arithmatex">\(s_t\)</span></li>
+<li>takes an action <span class="arithmatex">\(a_t\)</span></li>
+<li>receives a reward <span class="arithmatex">\(r_{t+1}\)</span></li>
+<li>transitions to a new state <span class="arithmatex">\(s_{t+1}\)</span></li>
+</ul>
+<p>This forms a sequence like:</p>
+<p><span class="arithmatex">\(s_0, a_0, r_1, s_1, a_1, r_2, s_2, \dots\)</span></p>
+<p>These sequences are important because the goal of the agent is to choose actions that lead to better rewards over time. This sequence also means that the agent must balance what it knows now with how its current decisions affect future states and rewards.</p>
+<hr />
+<h3 id="transition-probability">Transition Probability</h3>
+<p>To model how the environment reacts to the agent’s actions, we use the concept of a <strong>transition probability</strong>. This tells us the probability of ending up in a certain next state and receiving a certain reward, given the current state and action.</p>
+<p>This is written as:</p>
+<p><span class="arithmatex">\(P(s', r \mid s, a)\)</span> </p>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\(s\)</span>: current state  </li>
+<li><span class="arithmatex">\(a\)</span>: current action  </li>
+<li><span class="arithmatex">\(s'\)</span>: next state  </li>
+<li><span class="arithmatex">\(r\)</span>: reward received after taking action <span class="arithmatex">\(a\)</span> in state <span class="arithmatex">\(s\)</span></li>
+</ul>
+<p>This defines the <strong>dynamics</strong> of the environment. If the environment is deterministic, the next state and reward are always the same for a given state-action pair. If it’s stochastic, the outcomes are uncertain and described by probabilities.</p>
+<hr />
+<h3 id="markov-decision-process-mdp">Markov Decision Process (MDP)</h3>
+<p>When the next state and reward depend <strong>only</strong> on the current state and action (and not the full history), we say the environment has the <strong>Markov property</strong>.</p>
+<p>A <strong>Markov Decision Process (MDP)</strong> is a common way to formalize reinforcement learning problems. An MDP is defined by:</p>
+<ul>
+<li>A set of states <span class="arithmatex">\(S\)</span></li>
+<li>A set of actions <span class="arithmatex">\(A\)</span></li>
+<li>A transition function <span class="arithmatex">\(P(s', r \mid s, a)\)</span></li>
+<li>A reward function <span class="arithmatex">\(R(s, a)\)</span> or <span class="arithmatex">\(R(s, a, s')\)</span></li>
+<li>A discount factor <span class="arithmatex">\(\gamma \in [0, 1]\)</span></li>
+</ul>
+<p>The agent’s objective in an MDP is to learn a <strong>policy</strong> (a rule for choosing actions) that maximizes the expected return:</p>
+<p><span class="arithmatex">\(G_t = r_{t+1} + \gamma r_{t+2} + \gamma^2 r_{t+3} + \dots\)</span></p>
+<p>The Markov property helps simplify learning and planning, and most RL algorithms assume the environment follows this structure.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -321,6 +516,28 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../introduction/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Introductoin">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Introductoin
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
@@ -377,16 +594,16 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "/", "features": ["navigation.footer"], "search": "/assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="/assets/javascripts/bundle.c8b220af.min.js"></script>
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
       
-        <script src="/js/math-render.js"></script>
+        <script src="../js/math-render.js"></script>
       
     
   </body>

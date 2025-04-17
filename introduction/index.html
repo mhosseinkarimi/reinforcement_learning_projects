@@ -1,0 +1,962 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://example.com/introduction/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../tabular_rl/">
+      
+      
+      <link rel="icon" href="../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
+    
+    
+      
+        <title>Introductoin - RL Exploration Logs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,400,400i,700,700i%7CRed+Hat+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Merriweather Sans";--md-code-font:"Red Hat Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introductoin" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="RL Exploration Logs" class="md-header__button md-logo" aria-label="RL Exploration Logs" data-md-component="logo">
+      
+  <img src="../assets/rl_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            RL Exploration Logs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introductoin
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="deep-purple"  aria-label="Dark Mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark Mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="deep-orange"  aria-label="Light Mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light Mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="RL Exploration Logs" class="md-nav__button md-logo" aria-label="RL Exploration Logs" data-md-component="logo">
+      
+  <img src="../assets/rl_logo.png" alt="logo">
+
+    </a>
+    RL Exploration Logs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Welcome to My RL Exploration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Introductoin
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introductoin
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-reinforcement-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is Reinforcement Learning?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-evaluate-the-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Evaluate the Performance?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to Evaluate the Performance?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    <span class="md-ellipsis">
+      Return
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#value-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Value Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action-value-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Action-Value Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-can-we-model-the-decision-making-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      How can we Model the Decision-making Process?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How can we Model the Decision-making Process?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sequences-of-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sequences of Interaction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transition-probability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transition Probability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#markov-decision-process-mdp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Markov Decision Process (MDP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Policy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Policy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deterministic-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deterministic Policy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stochastic-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stochastic Policy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Policy Evaluation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy-improvement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Policy Improvement
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tabular_rl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tabular rl
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-reinforcement-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is Reinforcement Learning?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-evaluate-the-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Evaluate the Performance?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to Evaluate the Performance?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    <span class="md-ellipsis">
+      Return
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#value-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Value Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action-value-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Action-Value Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-can-we-model-the-decision-making-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      How can we Model the Decision-making Process?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How can we Model the Decision-making Process?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sequences-of-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sequences of Interaction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transition-probability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transition Probability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#markov-decision-process-mdp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Markov Decision Process (MDP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Policy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Policy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deterministic-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deterministic Policy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stochastic-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stochastic Policy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Policy Evaluation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy-improvement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Policy Improvement
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="introductoin">Introductoin</h1>
+<h2 id="what-is-reinforcement-learning">What is Reinforcement Learning?</h2>
+<p>First things first, what is reinforcement learning!? Reinforcement learning relies on the idea of learning by <strong>interacting</strong> with an <strong>environment</strong>. The core concept of interaction with and environment and learning through the feedback recieved in this process, shapes the idea of reinforcement learning.</p>
+<p><img alt="Interaction" src="../assets/introduction/rl_agent_interaction.png" /></p>
+<div style="text-align: center;"><span style="font-size: 0.85em; color: #555;"><em>Image taken from Reinforcement Learning: An Introduction by Sutton & Barto</em></span></div>
+<!-- <div style="text-align: center;">
+  <img src="./assets/introduction/rl_agent_interaction.png" alt="The Model of Interaction between the Agent and the Environment" width="400"/>
+  <div style="font-size: 0.8em; color: #555; margin-top: 5px;">
+        Image taken from Reinforcement Learning: An Introduction by Richard S. Sutton and Andrew G. Barto
+  </div>
+</div> -->
+
+<p>To formulate this method of learning, first, we need to define a few concepts: </p>
+<ul>
+<li>
+<p><strong>Agent</strong>: The actor in the environment which acts upon the environment and recieves the feedback which it uses to reinforce positive behavior (wich larger rewards from the environment).</p>
+</li>
+<li>
+<p><strong>Environment</strong>: Pretty much the closest thing you can have to a teacher in this world! But it teaches you through experimentation and implicit rewards (or punishments) in its feedback to the agent. At each moment, the agent has a state in the environment and can apply an action and recieve a feedback from the environment.</p>
+</li>
+<li>
+<p><strong>State</strong>: The state can represent what the agent knows about its position regarding the environment. it can be measurements from a sensor to the location in a maze. Simply it represents where (how) you are with respect to your environment.</p>
+</li>
+<li>
+<p><strong>Action</strong>: An action is what the agent decides to do at each step. It’s the outcome of its decision-making process and directly affects the environment and the agent’s next state. The set of possible actions can be simple, like moving left or right, or more complex, like adjusting the speed of a robot or choosing a word in a conversation.</p>
+</li>
+<li>
+<p><strong>Reward</strong>: Reward is the feedback the agent gets from the environment after taking an action. It's just a number that tells the agent how good or bad its action was. The agent uses this number to learn what to do over time. The reward can be immediate or show up later, which makes learning tricky sometimes.</p>
+</li>
+</ul>
+<hr />
+<p>Now that we have the basic pieces of interaction, we can move toward how the agent uses them to reason and improve its decisions.</p>
+<h2 id="how-to-evaluate-the-performance">How to Evaluate the Performance?</h2>
+<p>We saw that unlike supervised learning, in reinforcement learning the reward is the only supervisory signal that the agent recieves from the environment. But just like in real life, instantaneous reward does not necessary say everything about an action. In a lot of problems rewards are often delayed or are very sparse. This makes the process of decision making incridibly challenging. In this section, we introduce a few alternative and more robust metrics for performance in the long run.</p>
+<h3 id="return">Return</h3>
+<p>A single reward is often not enough. What really matters is the <strong>total reward</strong> the agent can collect in the future — this is called the return. It helps the agent understand the long-term effect of its actions.</p>
+<p>The return at time step <span class="arithmatex">\( t \)</span> is usually written as:</p>
+<p>$
+G_t = r_{t+1} + r_{t+2} + r_{t+3} + \cdots + r_T
+$</p>
+<p>In tasks that go on forever, we use a discount factor $\gamma \in [0, 1] $ to slowly reduce the importance of future rewards:</p>
+<p>$
+G_t = r_{t+1} + \gamma r_{t+2} + \gamma^2 r_{t+3} + \cdots
+$</p>
+<p>This makes sure the total return stays reasonable and helps focus more on near-future rewards.</p>
+<h3 id="value-function">Value Function</h3>
+<p>The value function tells us how good it is for the agent to be in a certain <strong>state</strong>. It's the expected return if the agent starts from that state and follows its strategy (called a policy):</p>
+<p>$
+V(s) = \mathbb{E}[G_t \mid s_t = s]
+$</p>
+<p>In simple words, it helps the agent know which states are better in the long run.</p>
+<h3 id="action-value-function">Action-Value Function</h3>
+<p>The action-value function goes one step further. Instead of just looking at a state, it looks at both the <strong>state</strong> and the <strong>action</strong>. It tells the agent how good it is to take a specific action in a given state:</p>
+<p>$
+Q(s, a) = \mathbb{E}[G_t \mid s_t = s, a_t = a]
+$</p>
+<p>This is very useful when the agent needs to decide between several possible actions in the same state. </p>
+<h2 id="how-can-we-model-the-decision-making-process">How can we Model the Decision-making Process?</h2>
+<h3 id="sequences-of-interaction">Sequences of Interaction</h3>
+<p>In reinforcement learning, what the agent does now affects what happens next. The agent interacts with the environment step by step. At each time step <span class="arithmatex">\(t\)</span>, the agent:</p>
+<ul>
+<li>observes a state <span class="arithmatex">\(s_t\)</span></li>
+<li>takes an action <span class="arithmatex">\(a_t\)</span></li>
+<li>receives a reward <span class="arithmatex">\(r_{t+1}\)</span></li>
+<li>transitions to a new state <span class="arithmatex">\(s_{t+1}\)</span></li>
+</ul>
+<p>This forms a sequence like:</p>
+<div class="arithmatex">\[
+s_0, a_0, r_1, s_1, a_1, r_2, s_2, \dots
+\]</div>
+<p>These sequences are important because the goal of the agent is to choose actions that lead to better rewards over time. This sequence also means that the agent must balance what it knows now with how its current decisions affect future states and rewards.</p>
+<hr />
+<h3 id="transition-probability">Transition Probability</h3>
+<p>To model how the environment reacts to the agent’s actions, we use the concept of a <strong>transition probability</strong>. This tells us the probability of ending up in a certain next state and receiving a certain reward, given the current state and action.</p>
+<p>Mathematically, this is written as:</p>
+<div class="arithmatex">\[
+P(s', r \mid s, a)
+\]</div>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\(s\)</span>: current state  </li>
+<li><span class="arithmatex">\(a\)</span>: action taken in state <span class="arithmatex">\(s\)</span>  </li>
+<li><span class="arithmatex">\(s'\)</span>: resulting next state  </li>
+<li><span class="arithmatex">\(r\)</span>: reward received after taking action <span class="arithmatex">\(a\)</span> in state <span class="arithmatex">\(s\)</span></li>
+</ul>
+<p>This probability describes the <strong>dynamics</strong> of the environment. If the outcome is always the same, we call it <strong>deterministic</strong>. Otherwise, it is <strong>stochastic</strong>.</p>
+<p>When the number of states is finite, these transition probabilities can be represented in a <strong>transition probability matrix</strong>. For a given action <span class="arithmatex">\(a\)</span>, this matrix <span class="arithmatex">\(P_a\)</span> holds values:</p>
+<div class="arithmatex">\[
+P_a(s, s') = \mathbb{P}[s_{t+1} = s' \mid s_t = s, a_t = a]
+\]</div>
+<p>Each row of this matrix gives the probability distribution over next states, given the current state and action. It forms the basis for computing expected returns, value functions, and planning.</p>
+<hr />
+<div class="admonition tip">
+<p class="admonition-title">Markov Process</p>
+<p>A <strong>Markov process</strong> is a stochastic process where the future depends only on the current state — not on the sequence of events that preceded it. This is known as the <strong>Markov property</strong>:</p>
+<div class="arithmatex">\[
+\mathbb{P}[s_{t+1} \mid s_t, s_{t-1}, \dots, s_0] = \mathbb{P}[s_{t+1} \mid s_t]
+\]</div>
+<p>A Markov process without actions or rewards is called a <strong>Markov chain</strong>. When we add actions and rewards, it becomes a <strong>Markov Decision Process (MDP)</strong>.</p>
+</div>
+<hr />
+<h3 id="markov-decision-process-mdp">Markov Decision Process (MDP)</h3>
+<p>A <strong>Markov Decision Process (MDP)</strong> provides a mathematical framework for modeling decision-making in environments that satisfy the Markov property.</p>
+<p>An MDP is defined by:</p>
+<ul>
+<li>A set of states <span class="arithmatex">\(S\)</span></li>
+<li>A set of actions <span class="arithmatex">\(A\)</span></li>
+<li>A transition probability function <span class="arithmatex">\(P(s', r \mid s, a)\)</span></li>
+<li>A reward function <span class="arithmatex">\(R(s, a)\)</span> or <span class="arithmatex">\(R(s, a, s')\)</span></li>
+<li>A discount factor <span class="arithmatex">\(\gamma \in [0, 1]\)</span></li>
+</ul>
+<p>In this setup, the agent interacts with the environment over time and chooses actions based on a <strong>policy</strong> <span class="arithmatex">\(\pi(a \mid s)\)</span>, which defines the probability of taking action <span class="arithmatex">\(a\)</span> in state <span class="arithmatex">\(s\)</span>.</p>
+<p>The goal of the agent is to find a policy that maximizes the <strong>expected return</strong>:</p>
+<div class="arithmatex">\[
+G_t = r_{t+1} + \gamma r_{t+2} + \gamma^2 r_{t+3} + \dots
+\]</div>
+<p>This compact structure makes MDPs very useful for developing and analyzing reinforcement learning algorithms.</p>
+<hr />
+<h3 id="policy">Policy</h3>
+<p>Now that we’ve seen how an agent interacts with the environment and how the environment behaves probabilistically, we can talk about what actually guides the agent’s behavior — the <strong>policy</strong>.</p>
+<p>A <strong>policy</strong> is the agent’s strategy for choosing actions based on the current state. It defines the agent's behavior at every point in time.</p>
+<hr />
+<h4 id="deterministic-policy">Deterministic Policy</h4>
+<p>A <strong>deterministic policy</strong> maps each state directly to a specific action:</p>
+<div class="arithmatex">\[
+\pi(s) = a
+\]</div>
+<p>This means that whenever the agent is in state <span class="arithmatex">\(s\)</span>, it always chooses action <span class="arithmatex">\(a\)</span>.</p>
+<hr />
+<h4 id="stochastic-policy">Stochastic Policy</h4>
+<p>In many settings, it is useful (or even necessary) to consider <strong>stochastic policies</strong>. These assign probabilities to each action given a state:</p>
+<div class="arithmatex">\[
+\pi(a \mid s) = \mathbb{P}[a_t = a \mid s_t = s]
+\]</div>
+<p>This is the probability that the agent chooses action <span class="arithmatex">\(a\)</span> when in state <span class="arithmatex">\(s\)</span>. Stochastic policies are especially useful for exploration, policy gradients, and environments with uncertainty.</p>
+<hr />
+<h4 id="policy-evaluation">Policy Evaluation</h4>
+<p>To evaluate how good a policy is, we use <strong>value functions</strong>:</p>
+<ul>
+<li>The <strong>state-value function</strong> for a policy <span class="arithmatex">\(\pi\)</span>:</li>
+</ul>
+<p>$$
+  V^\pi(s) = \mathbb{E}_\pi[G_t \mid s_t = s]
+  $$</p>
+<p>This gives the expected return starting from state <span class="arithmatex">\(s\)</span> and following policy <span class="arithmatex">\(\pi\)</span> thereafter.</p>
+<ul>
+<li>The <strong>action-value function</strong> for a policy <span class="arithmatex">\(\pi\)</span>:</li>
+</ul>
+<p>$$
+  Q^\pi(s, a) = \mathbb{E}_\pi[G_t \mid s_t = s, a_t = a]
+  $$</p>
+<p>This gives the expected return after taking action <span class="arithmatex">\(a\)</span> in state <span class="arithmatex">\(s\)</span>, and then following policy <span class="arithmatex">\(\pi\)</span> from the next state.</p>
+<hr />
+<h4 id="policy-improvement">Policy Improvement</h4>
+<p>The goal of reinforcement learning is to <strong>improve the policy</strong> over time. A better policy is one that gives higher expected returns.</p>
+<p>In many RL algorithms (like policy iteration or actor-critic methods), we update the policy by comparing value estimates and adjusting the action choices to increase the expected return. This is often done by:</p>
+<ul>
+<li>Making the policy more likely to choose actions with higher <span class="arithmatex">\(Q^\pi(s, a)\)</span></li>
+<li>Reducing the likelihood of actions with lower value</li>
+</ul>
+<p>Over time, this leads to <strong>optimal policies</strong>:</p>
+<div class="arithmatex">\[
+\pi^* = \arg\max_\pi V^\pi(s), \quad \forall s \in S
+\]</div>
+<p>This optimal policy achieves the highest expected return from any state.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Welcome to My RL Exploration">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Welcome to My RL Exploration
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../tabular_rl/" class="md-footer__link md-footer__link--next" aria-label="Next: Tabular rl">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Tabular rl
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy 2025 Hossein Karimi
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/mhosseinkarimi" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/mohammadhossein-karimi/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+      
+        <script src="../js/math-render.js"></script>
+      
+    
+  </body>
+</html>

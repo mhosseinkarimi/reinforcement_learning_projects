@@ -2,6 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://example.com/</loc>
-         <lastmod>2025-04-13</lastmod>
+         <lastmod>2025-04-17</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/introduction/</loc>
+         <lastmod>2025-04-17</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/tabular_rl/</loc>
+         <lastmod>2025-04-17</lastmod>
     </url>
 </urlset>
