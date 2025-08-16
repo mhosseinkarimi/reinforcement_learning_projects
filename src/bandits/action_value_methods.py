@@ -14,7 +14,7 @@ class EpsilonGreedy:
         else:
             assert len(initial_action_value) == len(env.actions)
             self.action_values = initial_action_value
-        
+
         self.weighting_mode = weighting_mode
         if weighting_mode == "sample_average":
             self.action_counts = np.zeros(len(env.actions))
